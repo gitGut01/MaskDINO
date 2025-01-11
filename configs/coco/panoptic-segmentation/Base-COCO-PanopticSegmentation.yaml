@@ -14,8 +14,8 @@ MODEL:
     # NORM: "SyncBN"
     RES5_MULTI_GRID: [1, 1, 1]  # not used
 DATASETS:
-  TRAIN: ("coco_2017_train_panoptic",)
-  TEST: ("coco_2017_val_panoptic_with_sem_seg",)  # to evaluate instance and semantic performance as well
+  TRAIN: ("my_rle_dataset_train") # ("coco_2017_train_panoptic",)
+  TEST: ("my_rle_dataset_train") # ("coco_2017_val_panoptic_with_sem_seg",)  # to evaluate instance and semantic performance as well
 SOLVER:
   IMS_PER_BATCH: 16
   BASE_LR: 0.0001
@@ -38,7 +38,7 @@ INPUT:
   MIN_SCALE: 0.1
   MAX_SCALE: 2.0
   FORMAT: "RGB"
-  DATASET_MAPPER_NAME: "coco_panoptic_lsj"
+  DATASET_MAPPER_NAME: "coco_instance" # "coco_panoptic_lsj"
 TEST:
   EVAL_PERIOD: 5000
 DATALOADER:
