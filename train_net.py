@@ -48,6 +48,7 @@ from maskdino import (
     COCOPanopticNewBaselineDatasetMapper,
     InstanceSegEvaluator,
     MaskFormerSemanticDatasetMapper,
+    COCOPanopticRLEDatasetMapper,
     SemanticSegmentorWithTTA,
     add_maskdino_config,
     DetrDatasetMapper,
@@ -216,6 +217,9 @@ class Trainer(DefaultTrainer):
         # Semantic segmentation dataset mapper
         elif cfg.INPUT.DATASET_MAPPER_NAME == "mask_former_semantic":
             mapper = MaskFormerSemanticDatasetMapper(cfg, True)
+            return build_detection_train_loader(cfg, mapper=mapper)
+        elif cfg.INPUT.DATASET_MAPPER_NAME == "coco_panoptic_rle":
+            mapper = COCOPanopticRLEDatasetMapper(cfg, True)
             return build_detection_train_loader(cfg, mapper=mapper)
         else:
             mapper = None
