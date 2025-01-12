@@ -53,7 +53,7 @@ from maskdino import (
     DetrDatasetMapper,
 )
 
-import maskdino.data.datasets.register_coco_panoptic_rle_mask_custom 
+import maskdino.data.datasets.register_coco_panoptic_rle_mask
 
 import random
 from detectron2.engine import (
